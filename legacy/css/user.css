@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+header{
+    position: fixed ;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+	background-color: #89d8d3;
+	background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
+    padding: 15px 20px;
+}
+.logo img{
+    width: 150px;
+}
+.navbar{
+    display: flex;
+}
+.navbar li{
+    position: relative;
+}
+.navbar a{
+    font-size: 1rem;
+    padding: 10px 20px;
+    color: black;
+    font-weight: 500;
+    font-size: 20px;
+	font-family: 'Crete Round', serif;
+}
+.navbar a::after{
+    content: "";
+    width: 0;
+    height: 3px;
+    background:aqua;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: 0.5s;
+}
+.navbar a:hover:after{
+    width: 100%;
+}
+.header-btn a{
+    padding: 10px 20px;
+    color:#444;
+    font-weight: 500;
+    font-size: 20px;
+	font-family: 'Crete Round', serif;
+}
+
+.header-btn .login:hover{
+    background:#eeeff1;
+    border-radius: 0.5rem;
+    color: #009688;
+}
+/*------------------ WASHING -----------------*/
+h2{
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	font-weight: bolder;
+	margin-top: 10%;
+    text-align: center;
+}
+.table{
+    border-collapse: collapse;
+    margin: 20px auto;
+	width: 900px;
+}
+.title{
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	margin-top:2%;
+    background-color: #009879;
+    color: azure;
+    text-align: center;
+}
+.table th,td{
+    padding: 12px 15px;
+    
+}
+.table td{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+}
+.table tbody tr{
+    border-bottom: 1px solid #dddddd;
+}
+.table tr:nth-of-type(even){
+    background-color: #f3f3f3;
+}
+.table tr:last-of-type{
+    border-bottom: 2px solid #009879;
+}

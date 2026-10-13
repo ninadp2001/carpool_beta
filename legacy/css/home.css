@@ -1,0 +1,138 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+header{
+    position: fixed ;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #fce043;
+    background-image: linear-gradient(315deg, #fce043 0%, #fb7ba2 74%);
+    padding: 15px 20px;
+}
+.logo img{
+    width: 150px;
+}
+.navbar{
+    display: flex;
+}
+.navbar li{
+    position: relative;
+}
+.navbar a{
+    font-size: 1rem;
+    padding: 10px 20px;
+    color: #444;
+    font-weight: bold;
+    font-size: 20px;
+    font-family: 'Crete Round', serif;
+}
+.navbar a::after{
+    content: "";
+    width: 0;
+    height: 3px;
+    background:#ffffff;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: 0.5s;
+}
+.navbar a:hover:after{
+    width: 100%;
+}
+.header-btn a{
+    padding: 10px 20px;
+    color:#444;
+    font-weight: bold;
+    font-family: 'Crete Round', serif;
+    font-size: 20px;
+}
+
+.header-btn .login:hover{
+    background:whitesmoke;
+    border-radius: 0.5rem;
+    color: #ff105f;
+}
+
+/*-------------HOMR---------*/
+ .banner{
+	width: 100%;
+	height: 100vh;
+	background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(home.jpg);
+	background-size: cover;
+	background-position: center;
+}
+
+ .banner .content{
+	width: 100%;
+	position: absolute;
+	top: 40%;
+	transform: translateY(-50%);
+	text-align: center;
+	color: #fff;
+}
+ .banner .content h2{
+	font-size: 60px;
+	margin-top: 80px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+ .banner .content h3{
+	margin: 10px auto;
+	font-weight: 100;
+	line-height: 25px;
+    font-weight:bolder;
+    font-family:cursive;
+ 
+}
+
+ .banner button{
+	border: 2px solid #ffad06;
+	background: none;
+	padding: 15px 0;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	color: #fff;
+	border-radius: 25px;
+	margin: 10px;
+	transition: 0.5s;
+	width: 200px;
+	text-align: center;
+	position: relative;
+	overflow: hidden;  
+}
+ .banner button::before{
+	content: "";
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 0%;
+	background: #ff105f;
+	z-index: -1;
+	transition: 0.5s;
+}
+ .banner button::before{
+	top: 0;
+	border-radius: 0 0 25% 50%;
+}
+ .banner button:hover::before{
+	height: 180%;
+}
+
+
+
+
+
+
+
+
+
+
+
