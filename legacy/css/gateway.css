@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhaijaan|Ubuntu');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Ubuntu', sans-serif;
+}
+body{
+  background-color: #FBDA61;
+  background-image: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);  
+  margin: 0 10px;
+}
+.payment{
+  background: #f8f8f8;
+  max-width: 360px;
+  margin: 70px auto;
+  height: auto;
+  padding: 35px;
+  padding-top: 70px;
+  border-radius: 5px;
+  position: relative;
+}
+.payment-logo{
+  position: absolute;
+  top: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  height: 100px;
+  background-color: #FFDEE9;
+  background-image: linear-gradient(132deg, #FFDEE9 0%, #B5FFFC 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 20px #FBDA61;
+  line-height: 85px;
+}
+.logo{
+  height: 70px;
+  width: 100px;
+  padding: 20px 2px 2px 2px;
+}
+.payment-logo:hover{
+	box-shadow: 0 0 60px 0 #FF5ACD;
+}
+
+.payment h2{
+  text-align: center;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+  color: #0d3c61;
+}
+.label{
+  display: block;
+  color: #555555;
+  margin-bottom: 6px;
+  margin-top: 20px;
+}
+.input{
+  padding: 13px 0px 13px 50px;
+  width: 100%;
+  text-align: center;
+  border: 2px solid #dddddd;
+  border-radius: 5px;
+  letter-spacing: 1px;
+  word-spacing: 3px;
+  outline: none;
+  font-size: 16px;
+  color: #555555;
+
+}
+i{
+  position: absolute;
+  font-size: 20px;
+  color: #555555;
+}
+.lock{
+	padding: 15px 15px;
+}
+.grp{
+  display: flex;
+  justify-content: space-between;
+}
+.half{
+  width: 48%;
+}
+.btn{
+  margin-top: 20px;
+  margin-left: 70px;
+  width: 50%;
+  font-weight: bolder;
+  background: linear-gradient(45deg, #FBDA61 0%, #FF5ACD 100%);
+  padding: 12px;
+  text-align: center;
+  color: #f8f8f8;
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: 'Ubuntu', sans-serif;
+  border: 2px solid;
+}
+.btn:hover{
+    background:white;
+    color: #FF5ACD;
+    border: 2px solid #FBDA61;
+}
+.error{
+	color: #e74c3c;
+	font-size: 12px;
+  padding-top: 1px;
+}
+
+@media screen and (max-width: 420px){
+  .grp{
+    flex-direction: column;
+  }
+  .half{
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  .btn{
+    margin-top: 20px;
+  }
+}

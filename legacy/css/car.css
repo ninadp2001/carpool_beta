@@ -1,0 +1,319 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-padding-top: 2rem;
+    scroll-behavior: smooth;
+    list-style: none;
+    text-decoration: none;
+}
+header{
+    position: fixed ;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+	background-color: #89d8d3;
+	background-image: linear-gradient(315deg, #89d8d3 0%, #03c8a8 74%);
+    padding: 15px 20px;
+}
+.logo img{
+    width: 150px;
+}
+.navbar{
+    display: flex;
+}
+.navbar li{
+    position: relative;
+}
+.navbar a{
+    font-size: 1rem;
+    padding: 10px 20px;
+    color: black;
+    font-weight: 500;
+    font-size: 20px;
+	font-family: 'Crete Round', serif;
+}
+.navbar a::after{
+    content: "";
+    width: 0;
+    height: 3px;
+    background:aqua;
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: 0.5s;
+}
+.navbar a:hover:after{
+    width: 100%;
+}
+.header-btn a{
+    padding: 10px 20px;
+    color:#444;
+    font-weight: 500;
+    font-size: 20px;
+	font-family: 'Crete Round', serif;
+}
+
+.header-btn .login:hover{
+    background:#eeeff1;
+    border-radius: 0.5rem;
+    color: #009688;
+}
+/*------------------CAR WASH HOME -----------------*/
+
+.banner{
+	width: 100%;
+	height: 100vh;
+	background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(cwhome.jpg);
+	background-size: cover;
+}
+.row{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding-top: 9%;
+	text-align: center;
+}
+.row .col-1{
+	flex-basis: 60%;
+	position: relative;
+}
+.row .col-1 h2{
+	font-size: 40px;
+	padding-left: 1%;
+	color: aquamarine;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.row .col-1 h3{
+	font-size: 25px;
+	color: white;
+	font-weight: 100;
+	margin: 20px 0 10px;
+	text-align: center;
+	font-family:cursive;
+}
+.row .col-1 button{
+	border: 2px solid #009688;
+	background:#009688 ;
+	padding: 15px 0;
+	font-size: 20px;
+	font-weight: bold;
+	cursor: pointer;
+	color: #fff;
+	border-radius: 25px;
+	margin: 10px;
+	transition: 0.5s;
+	width: 200px;
+	text-align: center;
+	position: relative;
+	overflow: hidden;  
+}
+.row .col-1 button a{
+    padding: 10px 20px;
+    color:#444;
+    font-weight: 500;
+    font-size: 24px;
+}
+.row .col-1 button:hover{
+    background: aquamarine;
+	color: #444;
+    border-radius: 25px;
+}
+.row .col-2{
+	flex-basis: 70%;
+}
+.row .col-2 .car{
+	width: 100%;
+	align-content: left;
+}
+.bar{
+	text-align: center;
+	width: 98%;
+	margin-left: 1%;
+	cursor: pointer;
+	padding-top: 2%;
+}
+.bar .row2{
+	display: flex;
+	justify-content:space-between;
+}
+.bar .row2 .col{
+	flex-basis: 24%;
+	background: #009688;
+	border-radius: 5px;
+	height: 240px;
+	padding: 10px 5px;
+	box-sizing:border-box;
+	transition: .5s;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.bar .row2 .col h1{
+	font-size: 30px;
+}
+.bar .row2 .col p{
+	font-size: 20px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	color:bisque;
+	padding: 10px;
+	font-family: cursive;
+}
+.bar .row2 .col:hover{
+	box-shadow: 0 0 60px 0 whitesmoke;
+}
+
+/*------------------WASHING PLAN -----------------*/
+
+.plan .container{
+	padding-top: 12%;
+}
+.plan .text-box{
+	width: 100%;
+	color: #fff;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-align: center;
+}
+.text-box h1{
+	font-size: 60px;
+	color: aquamarine;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.text-box h2{
+	font-size: 40px;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.plan .container .row{
+	display: flex;
+	justify-content: space-between;
+	padding-top: 7%;
+	width: 96%;
+	align-content: center;
+	margin-left: 2%;
+}
+.plan .container .price-body{
+	flex-basis: 30%;
+	background: #009688;
+	border-radius: 20px;
+	box-sizing: border-box;
+	color: white;
+	height: 410px;
+	padding-top: 10px;
+}
+.plan .container .price-body h2{
+	text-align: center;
+	font-size: 30px;
+	color: lightcoral;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	text-transform: uppercase;
+}
+.plan .container .price-body  h3{
+	text-align: center;
+	font-size: 30px;
+	color: black;
+}
+.plan .container .price-body:hover{
+	box-shadow: 0 0 60px 0 white;
+}
+.plan .container .price-body .uli{
+	text-align: left;
+	margin-left: 75px;
+	font-size: 20px;
+	margin-top: 3%;
+	list-style: none;
+	font-family: cursive;
+}
+.plan .container .price-body .uli li{
+	padding: 0 0 5px 0;
+}
+.plan .container.price-body ul li i {
+    margin-right: 10px;
+}
+.plan .container .price-body ul li i.fa-check-circle {
+    color: #39B972;
+}
+.plan .container .price-body ul li i.fa-times-circle {
+    color: red;
+}
+.book {
+	margin-top: 3%;
+	font-size: 20px;
+	cursor: pointer;
+	width: 100px;
+}
+.btn{
+	padding: 10px 80px;
+	position: absolute;
+	display: block;
+	background: linear-gradient(to right, #ff105f, #ffad06);
+	border: 0;
+	outline: none;
+	border-radius: 30px;
+	margin-left: 60px;
+}
+.btn:hover {
+	color: #E81C2E;
+    background: #202C45;
+    box-shadow: inset 200px 0 0 0 #202C45;
+}
+
+
+/*------------------WASHING CENTER -----------------*/
+
+
+.center .banner{
+	width: 100%;
+	height: 100vh;
+	background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)), url(cwhome.jpg);
+	background-size: cover;
+	background-position: center;
+}
+.center .text{
+	width: 100%;
+	color: #fff;
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%, 150%);
+	text-align: center;
+}
+.center .text h2{
+	font-size: 50px;
+	color: aquamarine;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	text-transform:uppercase;
+}
+
+.center .row{
+	display: flex;  
+	flex-wrap: wrap;
+	justify-content:space-between;
+	padding-top: 12%;
+}
+.center .row .col{
+	flex-basis: 30%;
+	padding: 20px 30px;
+}
+.center .row .col .text1 h2{
+	color: red;
+	font-size: 20px;
+	font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+	text-transform: uppercase;
+}
+.center .row .col .text1 p{
+	color: white;
+	font-size: 15px;
+	font-family: cursive;
+}
+.center .row .col .text1 p span{
+	color: white;
+	font-size: 15px;
+	font-weight: bold ;
+	padding-right: 10px;
+}
+.map{
+	color: #E81C2E;
+}
