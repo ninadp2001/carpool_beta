@@ -1,0 +1,343 @@
+/* CarPool design tokens.
+   Palette taken from Mumbai's kaali-peeli taxis: asphalt black body, taxi-roof yellow.
+   Type: Barlow Condensed for headings (road-sign proportions), Barlow for text. */
+:root {
+  --asphalt: #22262b;
+  --asphalt-2: #30353c;
+  --taxi: #ffc72c;
+  --taxi-deep: #e5a800;
+  --road: #f4f5f6;
+  --paper: #ffffff;
+  --ink: #22262b;
+  --lane: #5f6670;
+  --line: #d9dce0;
+  --go: #1c7c4d;
+  --go-bg: #e3f3ea;
+  --stop: #b83227;
+  --stop-bg: #fbe9e7;
+  --wait: #7a5200;
+  --wait-bg: #fff4d6;
+
+  --display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --text: "Barlow", "Segoe UI", system-ui, sans-serif;
+
+  --r-sm: 4px;
+  --r-md: 8px;
+  --page: 1180px;
+  --gutter: clamp(16px, 4vw, 40px);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--road);
+  color: var(--ink);
+  font: 400 1.0625rem/1.55 var(--text);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+#root { display: contents; }
+main { flex: 1; }
+img { max-width: 100%; display: block; }
+a { color: var(--ink); text-decoration-color: var(--taxi-deep); text-decoration-thickness: 2px; text-underline-offset: 3px; }
+a:hover { text-decoration-color: var(--ink); }
+h1, h2, h3 { font-family: var(--display); font-weight: 700; line-height: 1.05; margin: 0 0 0.4em; letter-spacing: 0.005em; }
+h1 { font-size: clamp(2.2rem, 4vw, 3rem); }
+h2 { font-size: 1.6rem; }
+h3 { font-size: 1.3rem; }
+p { margin: 0 0 0.8em; }
+small { font-size: 0.85em; }
+code { font-size: 0.85em; }
+:focus-visible { outline: 3px solid var(--taxi-deep); outline-offset: 2px; }
+
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.skip-link { position: absolute; left: -999px; top: 8px; background: var(--taxi); padding: 8px 12px; z-index: 10; }
+.skip-link:focus { left: 8px; }
+
+.muted { color: var(--lane); }
+.strong { font-weight: 600; }
+.lede { font-size: 1.15rem; max-width: 62ch; color: var(--lane); }
+
+/* ---------- layout ---------- */
+.page { max-width: var(--page); margin: 0 auto; padding: 40px var(--gutter) 64px; }
+.page.narrow { max-width: 560px; }
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.row-gap { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+.align-end { align-items: flex-end; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.span-2 { grid-column: 1 / -1; }
+.split { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 32px; align-items: start; margin-top: 24px; }
+.title-row { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 8px; }
+.title-row h1 { margin: 0; }
+
+/* ---------- header / footer ---------- */
+.site-header { background: var(--asphalt); color: #fff; border-bottom: 4px solid var(--taxi); }
+.site-header-inner { max-width: var(--page); margin: 0 auto; padding: 12px var(--gutter); display: flex; align-items: center; gap: 32px; }
+.site-header a { color: #fff; text-decoration: none; }
+.wordmark { font: 700 1.9rem/1 var(--display); letter-spacing: 0.01em; }
+.wordmark span { color: var(--taxi); }
+.main-nav, .account-nav { display: flex; gap: 22px; align-items: center; }
+.account-nav { margin-left: auto; }
+.main-nav a, .account-nav a, .link-button { font-weight: 500; padding: 6px 0; border-bottom: 2px solid transparent; }
+.main-nav a.active, .account-nav a.active { border-bottom-color: var(--taxi); }
+.main-nav a:hover, .account-nav a:hover { color: var(--taxi); }
+.site-header .btn-primary { color: var(--asphalt); }
+.link-button { background: none; border: 0; color: #fff; font: inherit; cursor: pointer; }
+.link-button:hover { color: var(--taxi); }
+.site-footer { border-top: 1px solid var(--line); color: var(--lane); font-size: 0.9rem; }
+.site-footer p { max-width: var(--page); margin: 0 auto; padding: 20px var(--gutter); }
+
+/* ---------- buttons & forms ---------- */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  font: 600 1rem/1 var(--text); padding: 12px 20px; border-radius: var(--r-sm);
+  border: 2px solid transparent; cursor: pointer; text-decoration: none; white-space: nowrap;
+}
+.btn:disabled { opacity: 0.55; cursor: not-allowed; }
+.btn-primary { background: var(--taxi); color: var(--asphalt); border-color: var(--taxi); }
+.btn-primary:hover:not(:disabled) { background: var(--taxi-deep); border-color: var(--taxi-deep); }
+.btn-outline { background: transparent; color: var(--ink); border-color: var(--ink); }
+.btn-outline:hover { background: var(--ink); color: #fff; }
+.btn-outline-light { background: transparent; color: #fff; border-color: rgba(255, 255, 255, 0.6); }
+.btn-outline-light:hover { border-color: #fff; background: rgba(255, 255, 255, 0.08); }
+.btn-ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn-ghost:hover:not(:disabled) { border-color: var(--ink); }
+.btn-sm { padding: 7px 12px; font-size: 0.9rem; }
+.btn-lg { padding: 15px 26px; font-size: 1.1rem; }
+
+.field { display: flex; flex-direction: column; gap: 6px; font-weight: 500; }
+.field > span small { font-weight: 400; color: var(--lane); }
+input, select, textarea {
+  font: inherit; color: var(--ink); background: var(--paper);
+  border: 1.5px solid var(--line); border-radius: var(--r-sm); padding: 10px 12px; width: 100%;
+}
+input:hover, select:hover, textarea:hover { border-color: #b8bdc4; }
+input:focus, select:focus, textarea:focus { outline: none; border-color: var(--ink); box-shadow: 0 0 0 3px rgba(255, 199, 44, 0.55); }
+.check { display: flex; gap: 10px; align-items: center; font-weight: 500; }
+.check input { width: auto; }
+.form-error { color: var(--stop); background: var(--stop-bg); border-left: 3px solid var(--stop); padding: 8px 12px; margin: 0; font-weight: 500; }
+.step-title { font-family: var(--display); font-size: 1.25rem; font-weight: 600; margin: 0 0 8px; }
+
+/* ---------- route line (signature) ---------- */
+.route { display: grid; grid-template-columns: auto minmax(28px, 1fr) auto; align-items: center; gap: 12px; min-width: 0; }
+.route-stop { font-weight: 600; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.route-road {
+  height: 8px; border-radius: 1px; background: var(--asphalt) repeating-linear-gradient(90deg, var(--taxi) 0 10px, transparent 10px 20px) center / 100% 2px no-repeat;
+  position: relative;
+}
+.route-road::before, .route-road::after { content: ""; position: absolute; top: 50%; width: 10px; height: 10px; border-radius: 50%; transform: translateY(-50%); background: var(--paper); border: 3px solid var(--asphalt); }
+.route-road::before { left: -6px; }
+.route-road::after { right: -6px; background: var(--taxi); }
+.route-sm .route-stop { font-size: 1rem; }
+.route-lg { grid-template-columns: 1fr; gap: 6px; margin: 10px 0 18px; }
+.route-lg .route-stop { font: 700 1.9rem/1.05 var(--display); white-space: normal; }
+.route-lg .route-road { width: 8px; height: 40px; margin-left: 12px; background: var(--asphalt) repeating-linear-gradient(180deg, var(--taxi) 0 8px, transparent 8px 16px) center / 2px 100% no-repeat; }
+.route-lg .route-road::before { left: 50%; top: -4px; transform: translateX(-50%); }
+.route-lg .route-road::after { left: 50%; right: auto; top: auto; bottom: -10px; transform: translateX(-50%); }
+
+/* ---------- home ---------- */
+.hero { background: var(--asphalt); color: #fff; }
+.hero-inner { max-width: var(--page); margin: 0 auto; padding: 64px var(--gutter) 72px; display: grid; grid-template-columns: 1.05fr 1fr; gap: 56px; align-items: center; }
+.hero h1 { font-size: clamp(3rem, 7vw, 5.6rem); line-height: 0.95; margin-bottom: 20px; max-width: 9ch; }
+.hero .lede { color: #c9cdd2; margin-bottom: 28px; }
+.departures { background: #1a1d21; border-radius: var(--r-md); padding: 22px 22px 10px; border-top: 6px solid var(--taxi); }
+.departures h2 { color: var(--taxi); font-size: 1.4rem; margin-bottom: 10px; }
+.departures ul { list-style: none; margin: 0; padding: 0; }
+.departures a { color: #fff; }
+.muted-light { color: #aab0b7; }
+.departure {
+  display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; gap: 16px; align-items: center;
+  padding: 14px 0; border-top: 1px solid #353a41; text-decoration: none;
+}
+.departures li:first-child .departure { border-top: 0; }
+.departure .route-road { background-color: #3a4048; }
+.departure .route-road::before { background: #1a1d21; border-color: #8a9099; }
+.departure .route-road::after { border-color: #8a9099; }
+.departure-time { display: flex; flex-direction: column; font-size: 0.85rem; color: var(--lane); line-height: 1.2; }
+.departure-time strong { font: 700 1.35rem/1.1 var(--display); color: var(--ink); white-space: nowrap; }
+.departures .departure-time { color: #aab0b7; }
+.departures .departure-time strong { color: var(--taxi); }
+.departure-meta { text-align: right; font-weight: 600; display: flex; flex-direction: column; line-height: 1.25; }
+.departure-meta small { color: var(--lane); font-weight: 400; }
+.departures .departure-meta small { color: #aab0b7; }
+.departures a.departure:hover .route-stop { color: var(--taxi); }
+
+.services { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; padding-top: 56px; }
+.service { padding: 0 28px; border-left: 1px solid var(--line); }
+.service:first-child { padding-left: 0; border-left: 0; }
+.service p { color: var(--lane); }
+.service a { font-weight: 600; }
+
+/* ---------- panels & summaries ---------- */
+.panel { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-md); padding: 22px; }
+.panel h2 { font-size: 1.5rem; }
+.sticky { position: sticky; top: 20px; }
+.summary { margin: 0; display: flex; flex-direction: column; }
+.summary > div { display: flex; justify-content: space-between; gap: 16px; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+.summary dt { color: var(--lane); }
+.summary dd { margin: 0; text-align: right; font-weight: 500; }
+.summary .total { border-bottom: 0; padding-top: 12px; }
+.summary .total dt { color: var(--ink); font-weight: 600; }
+.summary .total dd { font: 700 1.6rem/1 var(--display); }
+.panel > .summary { margin-bottom: 16px; }
+.notes { background: var(--road); padding: 10px 12px; border-radius: var(--r-sm); font-size: 0.95rem; }
+.done { border-left: 4px solid var(--go); background: var(--go-bg); padding: 14px 16px; }
+.done h3 { color: var(--go); margin-bottom: 4px; }
+.done a { font-weight: 600; }
+.empty { padding: 28px; border: 2px dashed var(--line); border-radius: var(--r-md); text-align: center; }
+.empty p:last-child { margin: 0; }
+
+/* ---------- rent ---------- */
+.car-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.car-card {
+  width: 100%; text-align: left; font: inherit; color: inherit; cursor: pointer;
+  background: var(--paper); border: 2px solid var(--line); border-radius: var(--r-md); padding: 0 0 14px; overflow: hidden;
+  display: flex; flex-direction: column; gap: 4px;
+}
+.car-card img { aspect-ratio: 4 / 3; object-fit: contain; width: 100%; height: auto; background: #fff; padding: 8px 12px; }
+.car-card:hover { border-color: #b8bdc4; }
+.car-card.selected { border-color: var(--asphalt); box-shadow: inset 0 -6px 0 var(--taxi); }
+.car-name { font: 700 1.35rem/1.1 var(--display); padding: 0 14px; }
+.car-meta { display: flex; justify-content: space-between; padding: 0 14px; color: var(--lane); }
+.car-meta strong { color: var(--ink); }
+
+/* ---------- wash ---------- */
+.plans { border: 0; padding: 0; margin: 24px 0 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+.plan { position: relative; background: var(--paper); border: 2px solid var(--line); border-radius: var(--r-md); padding: 18px; cursor: pointer; }
+.plan input { position: absolute; opacity: 0; }
+.plan:has(input:focus-visible) { outline: 3px solid var(--taxi-deep); outline-offset: 2px; }
+.plan.selected { border-color: var(--asphalt); box-shadow: inset 0 6px 0 var(--taxi); }
+.plan-name { display: block; font: 700 1.5rem/1 var(--display); margin-top: 4px; }
+.plan-price { display: block; font: 700 2.2rem/1.1 var(--display); margin: 6px 0 12px; }
+.plan ul { list-style: none; margin: 0; padding: 0; font-size: 0.95rem; }
+.plan li { padding: 3px 0 3px 24px; position: relative; }
+.plan li::before { position: absolute; left: 0; font-weight: 700; }
+.plan li.has::before { content: "✓"; color: var(--go); }
+.plan li.not { color: #a2a8b0; text-decoration: line-through; }
+.plan li.not::before { content: "–"; }
+.address { font-size: 0.95rem; margin: -4px 0 0; }
+.slots { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px; }
+.slot {
+  font: 600 1.1rem/1.1 var(--text); background: var(--paper); border: 2px solid var(--line); border-radius: var(--r-sm);
+  padding: 10px 8px; cursor: pointer; display: flex; flex-direction: column; align-items: center; gap: 2px;
+}
+.slot small { font-weight: 400; color: var(--lane); }
+.slot:hover:not(:disabled) { border-color: var(--ink); }
+.slot.selected { background: var(--asphalt); color: #fff; border-color: var(--asphalt); }
+.slot.selected small { color: var(--taxi); }
+.slot:disabled { cursor: not-allowed; color: #a2a8b0; background: var(--road); }
+
+/* ---------- carpool ---------- */
+.search-bar { display: grid; grid-template-columns: 1fr 1fr 170px 90px auto; gap: 12px; align-items: end; background: var(--asphalt); padding: 16px; border-radius: var(--r-md); margin-top: 16px; }
+.search-bar .field > span { color: #fff; }
+.ride-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; }
+.ride-row {
+  width: 100%; font: inherit; color: inherit; text-align: left; cursor: pointer;
+  display: grid; grid-template-columns: 82px minmax(0, 1fr) auto; gap: 18px; align-items: center;
+  background: var(--paper); border: 2px solid var(--line); border-radius: var(--r-md); padding: 14px 18px;
+}
+.ride-row:hover { border-color: #b8bdc4; }
+.ride-row.selected { border-color: var(--asphalt); box-shadow: inset 6px 0 0 var(--taxi); }
+.seats-field { width: 90px; }
+
+/* ---------- my bookings ---------- */
+.tabs { display: flex; gap: 4px; border-bottom: 2px solid var(--line); margin: 16px 0 20px; flex-wrap: wrap; }
+.tabs button { font: 600 1rem var(--text); background: none; border: 0; padding: 10px 14px; margin-bottom: -2px; border-bottom: 3px solid transparent; cursor: pointer; color: var(--lane); }
+.tabs button:hover { color: var(--ink); }
+.tabs button.active { color: var(--ink); border-bottom-color: var(--taxi-deep); }
+.count { display: inline-block; margin-left: 6px; min-width: 22px; padding: 1px 6px; border-radius: 10px; background: var(--line); font-size: 0.8rem; color: var(--ink); }
+.booking-list { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 12px; }
+.booking { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-md); padding: 16px 20px; }
+.booking:has(.booking-thumb) { grid-template-columns: 112px minmax(0, 1fr) auto; align-items: center; }
+.booking p { margin: 6px 0 0; }
+.booking .muted:first-child { margin-top: 0; }
+.booking-thumb { width: 112px; aspect-ratio: 4 / 3; object-fit: contain; }
+.booking-side { display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+.booking-actions { display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.passengers { margin: 8px 0 0; padding-left: 18px; }
+.passengers li { margin: 4px 0; }
+
+.status { display: inline-block; font-size: 0.82rem; font-weight: 600; padding: 3px 10px; border-radius: 20px; white-space: nowrap; }
+.status-confirmed, .status-paid, .status-open { background: var(--go-bg); color: var(--go); }
+.status-pending_payment, .status-created { background: var(--wait-bg); color: var(--wait); }
+.status-cancelled, .status-failed { background: var(--stop-bg); color: var(--stop); }
+.status-completed { background: var(--line); color: var(--ink); }
+
+/* ---------- dialog ---------- */
+.dialog-backdrop { position: fixed; inset: 0; background: rgba(20, 22, 25, 0.6); display: grid; place-items: center; padding: 16px; z-index: 50; }
+.dialog { background: var(--paper); border-radius: var(--r-md); border-top: 6px solid var(--taxi); padding: 26px; max-width: 420px; width: 100%; }
+.dialog .summary { margin-bottom: 20px; }
+
+/* ---------- admin ---------- */
+.admin { max-width: var(--page); margin: 0 auto; padding: 32px var(--gutter) 64px; display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 36px; }
+.admin-nav { display: flex; flex-direction: column; gap: 2px; position: sticky; top: 20px; align-self: start; }
+.admin-nav a { text-decoration: none; padding: 9px 12px; border-radius: var(--r-sm); font-weight: 500; color: var(--lane); }
+.admin-nav a:hover { color: var(--ink); background: var(--paper); }
+.admin-nav a.active { color: var(--ink); background: var(--paper); box-shadow: inset 4px 0 0 var(--taxi); }
+.admin-body h1 { font-size: 2.4rem; }
+.admin-grid { margin-top: 20px; }
+.stat-row { display: grid; grid-template-columns: 1.6fr repeat(3, 1fr); gap: 12px; }
+.stat { background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-md); padding: 16px 18px; display: flex; flex-direction: column; gap: 4px; }
+.stat span { color: var(--lane); }
+.stat strong { font: 700 2.2rem/1 var(--display); }
+.stat-lead { background: var(--asphalt); border-color: var(--asphalt); }
+.stat-lead span { color: #c9cdd2; }
+.stat-lead strong { color: var(--taxi); font-size: 2.8rem; }
+.bars { list-style: none; margin: 8px 0 0; padding: 0; height: 160px; display: flex; gap: 6px; align-items: stretch; }
+.bars li { flex: 1; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; gap: 4px; }
+.bar { width: 100%; max-width: 32px; background: var(--asphalt); border-top: 4px solid var(--taxi); min-height: 4px; }
+.bars small { color: var(--lane); font-size: 0.75rem; }
+.table-wrap { overflow-x: auto; background: var(--paper); border: 1px solid var(--line); border-radius: var(--r-md); margin-top: 16px; }
+.table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.table th { text-align: left; font-weight: 600; color: var(--lane); padding: 10px 14px; border-bottom: 2px solid var(--line); white-space: nowrap; }
+.table td { padding: 10px 14px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.table tr:last-child td { border-bottom: 0; }
+.table .num { text-align: right; font-variant-numeric: tabular-nums; }
+.table tr.inactive td { color: #a2a8b0; }
+.panel .table th, .panel .table td { padding-left: 0; }
+.row-actions { text-align: right; white-space: nowrap; }
+.row-actions .btn + .btn { margin-left: 6px; }
+.filters { margin: 12px 0 0; }
+.filters .tabs { margin: 0; border: 0; }
+.filters input { width: 260px; }
+.inline-field { flex-direction: row; align-items: center; gap: 8px; margin-left: auto; }
+.inline-field select { width: auto; }
+.admin-form { margin: 16px 0; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 960px) {
+  .hero-inner { grid-template-columns: 1fr; gap: 40px; padding-top: 48px; }
+  .split { grid-template-columns: 1fr; }
+  .sticky { position: static; }
+  .search-bar { grid-template-columns: 1fr 1fr; }
+  .search-bar .btn { grid-column: 1 / -1; }
+  .admin { grid-template-columns: 1fr; gap: 16px; }
+  .admin-nav { flex-direction: row; overflow-x: auto; position: static; }
+  .admin-nav a { white-space: nowrap; }
+  .stat-row { grid-template-columns: 1fr 1fr; }
+  .stat-lead { grid-column: 1 / -1; }
+}
+@media (max-width: 720px) {
+  .site-header-inner { flex-wrap: wrap; gap: 10px 20px; }
+  .main-nav { order: 3; width: 100%; gap: 18px; overflow-x: auto; }
+  .services, .plans { grid-template-columns: 1fr; }
+  .service { padding: 20px 0; border-left: 0; border-top: 1px solid var(--line); }
+  .service:first-child { border-top: 0; }
+  .grid-2 { grid-template-columns: 1fr; }
+  .ride-row, .departure { grid-template-columns: 78px minmax(0, 1fr); gap: 12px; }
+  .ride-row .departure-meta, .departure .departure-meta { grid-column: 2; text-align: left; flex-direction: row; gap: 10px; }
+  .booking, .booking:has(.booking-thumb) { grid-template-columns: 1fr; }
+  .booking-thumb { display: none; }
+  .route-stop { white-space: normal; overflow-wrap: break-word; hyphens: auto; }
+  .route:not(.route-lg) { grid-template-columns: 1fr; gap: 4px; }
+  .route:not(.route-lg) .route-road { width: 8px; height: 14px; margin-left: 6px; background: var(--asphalt) linear-gradient(var(--taxi), var(--taxi)) center / 2px 6px no-repeat; }
+  .route:not(.route-lg) .route-road::before, .route:not(.route-lg) .route-road::after { display: none; }
+  .panel.placeholder { display: none; }
+  .booking-side, .booking-actions { align-items: flex-start; flex-direction: row; flex-wrap: wrap; }
+  .inline-field { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  * { scroll-behavior: auto !important; transition: none !important; }
+}
