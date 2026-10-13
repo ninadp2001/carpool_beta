@@ -1,0 +1,32 @@
+# Postgres for local development. Start with: docker compose up -d
+# Add `--profile full` to also run the API in a container.
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: carpool
+      POSTGRES_PASSWORD: carpool
+      POSTGRES_DB: carpool
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U carpool"]
+      interval: 5s
+      retries: 10
+
+  api:
+    profiles: ["full"]
+    build: ./backend
+    env_file: ./backend/.env
+    environment:
+      DATABASE_URL: postgresql+psycopg://carpool:carpool@db:5432/carpool
+    ports:
+      - "8000:8000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  pgdata:
